@@ -16,23 +16,23 @@ public class BasicService<T> {
         this.repository = repository;
     }
 
-    public T salva(T entity) {
+    public T create(T entity) {
         return repository.save(entity);
     }
 
-    public List<T> todos() {
+    public List<T> get_all() {
         return repository.findAll();
     }
 
-    public Optional<T> buscaPor(Integer id) {
+    public Optional<T> find_by_id(Integer id) {
         return repository.findById(id);
     }
 
-    public void excluirPor(Integer id) {
+    public void delete_by_id(Integer id) {
         repository.deleteById(id);
     }
 
-    public T atualiza(T entity, Integer id) {
+    public T update_by_id(T entity, Integer id) {
         Optional<T> optionalEntityDoBanco = repository.findById(id);
         if (optionalEntityDoBanco.isPresent()) {
             T entityDoBanco = optionalEntityDoBanco.get();

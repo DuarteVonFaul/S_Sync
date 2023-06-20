@@ -10,11 +10,11 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-public class task {
+public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private Long id;
+    private Integer id;
 
     private String title;
     private String description;

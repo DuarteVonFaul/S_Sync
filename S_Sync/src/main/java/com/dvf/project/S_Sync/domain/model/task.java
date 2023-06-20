@@ -13,13 +13,13 @@ import java.time.LocalDate;
 public class task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private Long id;
 
     private String title;
     private String description;
     private LocalDate completionDate;
-    private LocalDate subitDate;
+    private LocalDate submitDate;
 
     @Enumerated(EnumType.STRING)
     private TypeTask type;

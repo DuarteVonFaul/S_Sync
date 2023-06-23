@@ -11,14 +11,13 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String username;
     private String password;
 
     @OneToOne
-    @JoinColumn(name = "Developer_id")
     private Developer developer;
 
 }

@@ -2,12 +2,14 @@ package com.dvf.project.S_Sync.domain.services;
 
 import com.dvf.project.S_Sync.domain.model.Task;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@Qualifier("taskRepository")
 public class TaskService extends BasicService<Task>{
 
     public TaskService(JpaRepository<Task, Integer> repository) {

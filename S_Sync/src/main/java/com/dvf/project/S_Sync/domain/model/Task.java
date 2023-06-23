@@ -30,4 +30,8 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private PriorityTask priority;
 
+    @OneToOne
+    @JoinColumn(name = "Developer_id")
+    private Developer developer;
+
 }

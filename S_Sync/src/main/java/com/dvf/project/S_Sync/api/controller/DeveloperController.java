@@ -1,6 +1,7 @@
 package com.dvf.project.S_Sync.api.controller;
 
 import com.dvf.project.S_Sync.domain.model.Developer;
+import com.dvf.project.S_Sync.domain.model.Task;
 import com.dvf.project.S_Sync.domain.services.DeveloperService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/developers")
@@ -37,7 +39,14 @@ public class DeveloperController {
         return new ResponseEntity<>(developer, HttpStatus.CREATED);
     }
 
-
+    @GetMapping("/{id}")
+    public ResponseEntity<Developer> get_task_id(@PathVariable Integer id ){
+        Optional<Developer> developer = developerService.find_by_id(id);
+        if(developer != null){
+            return new ResponseEntity<>(developer.get(), HttpStatus.OK);
+        }
+        return ResponseEntity.notFound().build();
+    }
 
 
 

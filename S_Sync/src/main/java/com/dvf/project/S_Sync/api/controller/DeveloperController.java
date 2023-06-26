@@ -1,7 +1,6 @@
 package com.dvf.project.S_Sync.api.controller;
 
 import com.dvf.project.S_Sync.domain.model.Developer;
-import com.dvf.project.S_Sync.domain.model.Task;
 import com.dvf.project.S_Sync.domain.services.DeveloperService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -48,6 +47,14 @@ public class DeveloperController {
         return ResponseEntity.notFound().build();
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Developer> update_task(@PathVariable Integer id, @RequestBody Developer newDeveloper ){
+        Developer developer = developerService.update_by_id(newDeveloper, id);
+        if(developer != null){
+            return new ResponseEntity<>(developer, HttpStatus.ACCEPTED);
+        }
+        return ResponseEntity.notFound().build();
+    }
 
 
 }
